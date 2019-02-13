@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--E2: EXAMEN-2 / ELABORAR UN DOCUMENTO HTML5 UTILIZANDO LENGUAJES DE MARCAS Y ESTANDARES DE DESARROLLO DE SOFTWARE.
+------------------------  
+MODULO: MF0491-3 DE UF1841
+ALUMNO: RUNE BRITO NUÑEZ  
+FECHA:05/01/2019
+////////////////////////
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+	
+  <title>Sistema Solar</title>
+  <meta charset="UTF-8" />
+  <meta name="keywords" content="planetas, sistema, solar, asteroides, satelites, sol, estrella, astro, astronomia "/>
+  <meta name="description" content="Pagina del sistema solar "/>
+
+<!--+++ link externo de estilos, en carpeta css, nombre: estilos.css +++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+<link rel="stylesheet" media="screen" type="text/css" href="./css/estilos.css"/>
+
+</head>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- Descripcion de la pagina; Cabecera / Titulo y subtitulos de la pagina / historia...  con sus respectivos estilos -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<body>
+
+<div id='winamp-container'></div>
+        
+    </div>
+    <script src="./js/webamp.bundle.min.js"></script>
+    <script>
+        const webamp = new Webamp({
+  initialTracks: [{
+    metaData: {
+      artist: "DJ Mike Llama",
+      title: "Llama Whippin' Intro",
+    },
+
+  availableSkins: [
+      { url: "./green.wsz", name: "Green Dimension V2" },
+    ],
+
+    // Tambien puede ser descargado desde: https://github.com/captbaritone/webamp/raw/master/mp3/llama-2.91.mp3
+      url: "./mp3/llama-2.91.mp3"
+  }],
+
+
+  // Optional. The default skin is included in the js bundle, and will be loaded by default.
+  initialSkin: {
+    // Tambien puede ser descargado desde https://github.com/captbaritone/webamp/raw/master/skins/TopazAmp1-2.wsz
+    url: "./skins/TopazAmp1-2.wsz"
+  },
+  });
+// Render despues que el skin es cargado
+  webamp.renderWhenReady(document.getElementById('winamp-container'));
+
+
+  webamp.appendTracks([
+    {url: './mp3/X-Dream - Quantum Lab.mp3'},
+    {url: './mp3/International Dateline.mp3'},
+    {url: './mp3/10. DJ Snake f. Justin Bieber - Let Me Love You.mp3'},
+    {url: './mp3/206_tame_impala_-_let_it_happen.mp3'}
+    
+  ]);
+    </script>
+
+
+<div class="titulo">
+
+  
+  <a> <canvas id="canvas" width="1440" height="200"></canvas>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.1.0/gl-matrix.js"></script>
+<script>/*
+    *** TRAVELING THROUGH SPACE ***
+    
+    An attempt of writing a space travel animation
+    
+*/
+
+var canvas = document.getElementById('canvas');
+var flr = Math.floor;
+
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+
+var halfw = canvas.width / 2,
+halfh = canvas.height / 2,
+step = 2,
+warpZ = 12,
+speed = 0.075;
+var stampedDate = new Date();
+
+var ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'black';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+function rnd(num1, num2) {
+    return flr(Math.random() * num2 * 2) + num1;
+}
+
+function getColor() {
+    return 'hsla(200,100%, ' + rnd(50, 100) + '%, 1)';
+}
+
+var star = function () {
+    var v = vec3.fromValues(rnd(0 - halfw, halfw), rnd(0 - halfh, halfh), rnd(1, warpZ));
+
+
+    this.x = v[0];
+    this.y = v[1];
+    this.z = v[2];
+    this.color = getColor();
+
+
+    this.reset = function () {
+        v = vec3.fromValues(rnd(0 - halfw, halfw), rnd(0 - halfh, halfh), rnd(1, warpZ));
+
+        this.x = v[0];
+        this.y = v[1];
+        this.color = getColor();
+        vel = this.calcVel();
+    };
+
+    this.calcVel = function () {
+
+        return vec3.fromValues(0, 0, 0 - speed);
+    };
+
+    var vel = this.calcVel();
+
+    this.draw = function () {
+        vel = this.calcVel();
+        v = vec3.add(vec3.create(), v, vel);
+        var x = v[0] / v[2];
+        var y = v[1] / v[2];
+        var x2 = v[0] / (v[2] + speed * 0.50);
+        var y2 = v[1] / (v[2] + speed * 0.50);
+
+        ctx.strokeStyle = this.color;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        if (x < 0 - halfw || x > halfw || y < 0 - halfh || y > halfh) {
+            this.reset();
+        }
+    };
+
+};
+
+var starfield = function () {
+    var numOfStars = 250;
+
+    var stars = [];
+
+    function _init() {
+        for (var i = 0, len = numOfStars; i < len; i++) {
+            stars.push(new star());
+        }
+    }
+
+    _init();
+
+    this.draw = function () {
+        ctx.translate(halfw, halfh);
+
+        for (var i = 0, len = stars.length; i < len; i++) {
+            var currentStar = stars[i];
+
+            currentStar.draw();
+        }
+    };
+
+};
+
+var mStarField = new starfield();
+
+function draw() {
+
+    // make 5 seconds
+    var millSeconds = 1000 * 10;
+
+    var currentTime = new Date();
+
+    speed = 0.025;
+
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.fillStyle = 'rgba(0,0,0,0.2)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    mStarField.draw();
+
+    window.requestAnimationFrame(draw);
+}
+
+draw();
+
+window.onresize = function () {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    halfw = canvas.width / 2;
+    halfh = canvas.height / 2;
+};
+//# sourceURL=pen.js
+</script></a>
+  
+  
+  <h1 style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; background-image: url('./fotos/LOGO.jpg');border: 0px solid rgb(204, 204, 204); padding: 5px px; opacity: 0.5; color: #8CB8EC;"><definicion>SISTEMA SOLAR</definicion></h1>
+
+     <p>&nbsp;</p>
+
+<iframe width="1000" height="410" src="https://www.youtube.com/embed/0jHsq36_NTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  
+
+<h3 style="text-align: center; color: white;"><concepto>Es el sistema planetario en el que se encuentran la Tierra y otros objetos astronómicos que giran directa o indirectamente en una órbita alrededor 
+    de una única estrella conocida como el Sol.</concepto></h3>
+<p>&nbsp;</p>
+</div>
+
+<h3 style="text-align: center; color: white;"><sol>DISTANCIA ENTRE LOS PLANETAS</sol></h3>
+<p style="text-align: center; color: white;"><historia>Las órbitas de los planetas mayores se encuentran ordenadas a distancias del Sol crecientes, de modo que la distancia de cada planeta es aproximadamente el doble que la del planeta inmediatamente anterior, aunque esto no se ajusta a todos los planetas. Esta relación se expresa mediante la ley de Titius-Bode, una fórmula matemática aproximada que indica la distancia de un planeta al Sol, en Unidades Astronómicas (UA).</historia></p>
+<p>&nbsp;</p>
+
+<h2 style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border: 1px solid rgb(204, 204, 204); padding: 5px 10px; text-align: center; opacity: 0.5;">ELEMENTOS QUE LO CONFORMAN</h2>
+
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- Definicion de tabla 01 de 02 y todos sus contenidos -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<table class="customTable">
+  <thead>
+    <tr>
+
+      <th><h4 style="color: #ffffff; text-align: center;">ESTRELLA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- IMAGENES: REFERENCIADAS A LA CARPETA "fotos" Y LINKS DE C/U 
+     de los planetas (sobre imagenes) hacia WIKIPEDIA         -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+    <tr>         
+      <td><a href="https://es.wikipedia.org/wiki/Sol"> <img src="fotos/sol.gif" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Mercurio_(planeta)"> <img src="fotos/1.jpg" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Venus_(planeta)"> <img src="fotos/2.jpg" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Tierra"> <img src="fotos/3.jpg" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Marte_(planeta)"> <img src="fotos/4.jpg" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Ceres_(planeta_enano)"> <img src="fotos/5.jpg" height="200" width="200" class="center"/></a></td>
+      
+    </tr>
+    <tr>
+      <td><h3><nombre>SOL</nombre></h3></td>
+      <td><h3><nombre>MERCURIO</nombre></h3></td>
+      <td><h3><nombre>VENUS</nombre></h3></td>
+      <td><h3><nombre>TIERRA</nombre></h3></td>
+      <td><h3><nombre>MARTE</nombre></h3></td>
+      <td><h3><nombre>CERES</nombre></h3></td>
+    </tr>
+    <tr>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+    </tr>
+    <tr>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- Descripcion de los planetas                         -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+    <td><desc>El Sol es la estrella única y central del sistema solar; 
+     de tipo espectral G2 que contiene más del 99,85 % de la masa del sistema.</desc>
+    </td>
+       
+    <td><desc>Planeta del sistema solar más próximo al Sol y el más pequeño.
+    Este, forma parte de los denominados planetas interiores o terrestres .</desc>
+    </td>
+       
+    <td><desc>Segundo planeta del sistema solar en orden de distancia desde el Sol,
+    el sexto en cuanto a tamaño, ordenados de mayor a menor.</desc>
+    </td>
+       
+    <td><desc>Planeta que gira en la tercera órbita más interna. A su vez, es el más denso y el quinto mayor de los restantes planetas del sistema solar.</desc>
+    </td>
+       
+    <td><desc>Es el cuarto planeta en orden de distancia al Sol y el segundo más pequeño del sistema solar, después de Mercurio.</desc>
+    </td>
+       
+   
+     <td><desc>Es un planeta enano y el objeto astronómico más grande del cinturón de asteroides, región del sistema solar cerca de Marte.</desc>
+    </td>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- Posicion y numero de satelites de los planetas      -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+    <tr>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+    </tr>
+    
+    <tr>
+      <td><posicion>CENTRO</posicion></td>
+      <td><posicion>01</posicion></td>
+      <td><posicion>02</posicion></td>
+      <td><posicion>03</posicion></td>
+      <td><posicion>04</posicion></td>
+      <td><posicion>05</posicion></td>
+    </tr>
+    
+    <tr>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>     
+      
+    </tr>
+      <tr>
+      <td><satelites>00</satelites></td>
+      <td><satelites>00</satelites></td>
+      <td><satelites>00</satelites></td>
+      <td><satelites>01</satelites></td>
+      <td><satelites>00</satelites></td>
+      <td><satelites>00</satelites></td>
+    </tr> 
+
+    <tr>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+    </tr> 
+
+</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- Definicion de tabla 02 de 02 y todos sus contenidos -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<table class="customTable">
+  <thead>
+    <tr>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+      <th><h4 style="color: #ffffff; text-align: center;">PLANETA</h4></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- IMAGENES: REFERENCIADAS A LA CARPETA "fotos" Y LINKS DE C/U 
+     de los planetas (sobre imagenes) hacia WIKIPEDIA         -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+    <tr>    
+      
+      <td><a href="https://es.wikipedia.org/wiki/J%C3%BApiter_(planeta)"> <img src="fotos/6.jpg" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Saturno_(planeta)"> <img src="fotos/7.jpg" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Urano_(planeta)"> <img src="fotos/8.jpg" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Neptuno_(planeta)"> <img src="fotos/9.jpg" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Plut%C3%B3n_(planeta_enano)"> <img src="fotos/pluton.gif" height="200" width="200" class="center"/></a></td>
+      <td><a href="https://es.wikipedia.org/wiki/Haumea_(planeta_enano)"> <img src="fotos/11.jpg" height="200" width="200" class="center"/></a></td>
+      
+    </tr>
+    <tr>
+      <td><h3><nombre>Jupiter</nombre></h3></td>
+      <td><h3><nombre>Saturno</nombre></h3></td>
+      <td><h3><nombre>Urano</nombre></h3></td>
+      <td><h3><nombre>Neptuno</nombre></h3></td>
+      <td><h3><nombre>Pluton</nombre></h3></td>
+      <td><h3><nombre>Haumea</nombre></h3></td>
+    </tr>
+    <tr>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+      <td><strong><nombre>Descripción:</nombre></strong></td>
+    </tr>
+    <tr>
+    <td><historia>Es el quinto planeta del sistema solar. Forma parte de los denominados planetas exteriores o gaseosos.</historia>
+    </td>
+       
+    <td><desc>Es el sexto planeta del sistema solar, el segundo en tamaño y masa después de Júpiter y el único con un sistema de anillos visible desde la Tierra.</desc>
+    </td>
+       
+    <td><desc>Es el séptimo planeta del sistema solar, el tercero de mayor tamaño, y el cuarto más masivo.</desc>
+    </td>
+       
+    <td><desc>Es el octavo planeta en distancia respecto al Sol y el más lejano del sistema solar. 
+      Forma parte de los denominados planetas gaseosos.</desc>
+    </td>
+       
+    <td><desc>Es un planeta enano del sistema solar situado a continuación de la órbita de Neptuno.  
+    </desc></td>
+       
+    <td><desc>Es un planeta enano que se encuentra más allá de la órbita de Neptuno, en el cinturón de Kuiper.</desc></td>
+       
+   
+      
+    </tr>
+    <tr>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+      <td><strong>Posición:</strong></td>
+    </tr>
+    <tr>
+      <td><posicion>06</posicion></td>
+      <td><posicion>07</posicion></td>
+      <td><posicion>08</posicion></td>
+      <td><posicion>09</posicion></td>
+      <td><posicion>10</posicion></td>
+      <td><posicion>11</posicion></td>
+    </tr>
+    <tr>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      <td><strong>Satelites:</strong></td>
+      
+      
+    </tr>
+    <tr>
+      <td><satelites>63</satelites></td>
+      <td><satelites>61</satelites></td>
+      <td><satelites>27</satelites></td>
+      <td><satelites>13</satelites></td>
+      <td><satelites>02</satelites></td>
+      <td><satelites>0</satelites></td>
+    </tr> 
+
+    <tr>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+      <td><vacio> </vacio></td>
+    </tr> 
+
+</tbody>
+</table>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--DEFINICION DEL FOOTER // derechos reservados                                                                  -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<footer>
+
+  <p>&nbsp;</p>
+  
+
+    <h5 style="text-align: center; color: white;">Copyright &copy; RB 1990-2019 El Sistema Solar, todos los derechos reservados</h5>
+    </footer>
+
+
+</body>
+</html>
