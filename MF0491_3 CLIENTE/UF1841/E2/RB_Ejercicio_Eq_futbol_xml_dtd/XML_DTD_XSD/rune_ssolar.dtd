@@ -1,0 +1,10 @@
+<!ELEMENT sistema (definicion, concepto, sol, historia, planetas)>
+<!ELEMENT definicion (#PCDATA)>
+<!ELEMENT concepto (#PCDATA)>
+<!ELEMENT sol (#PCDATA)>
+<!ELEMENT historia (#PCDATA)>
+<!ELEMENT planetas (desc | nombre | posicion | satelites)+>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT desc (#PCDATA)>
+<!ELEMENT satelites (#PCDATA)>
+<!ELEMENT posicion (#PCDATA)>

@@ -1,0 +1,17 @@
+EXAMEN E2 - Sistema Solar
+Alumno: Rune_b
+Fecha:05-01-2019
+
+
+** CARPETA: XML_DTD_XSD:
+- Archivo XML y su respectiva valorizacion en DTD y XSC(Schema) 
+
+** CARPETA: HTML5
+- Archivos en formato html5:
+con css interno (<style>) y css externo (estilos.ccs) dentro de la carpeta CSS y carpeta de imagenes llamada 
+/fotos.
+
+** CARPETA: HTML5
+- Archivos en formato xhtml:
+con css interno (<style>) y css externo (estilos.ccs) dentro de la carpeta CSS y carpeta de imagenes llamada 
+/fotos

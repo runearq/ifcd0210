@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<sistema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rune_ssolar.xsd">
+	<definicion>Sistema Solar</definicion>
+	<concepto>es el sistema planetario en el que se encuentran la Tierra y otros
+     objetos astronómicos que giran directa o indirectamente en una órbita alrededor 
+    de una única estrella conocida como el Sol.</concepto>
+	<sol>DISTANCIA ENTRE LOS PLANETAS</sol>
+	<historia>Las órbitas de los planetas mayores se encuentran ordenadas a distancias del Sol crecientes, de modo que la distancia de cada planeta es aproximadamente el doble que la del planeta inmediatamente anterior, aunque esto no se ajusta a todos los planetas. Esta relación se expresa mediante la ley de Titius-Bode, una fórmula matemática aproximada que indica la distancia de un planeta al Sol, en Unidades Astronómicas (UA).
+    </historia>
+	<planetas>
+		<nombre>Sol</nombre>
+		<desc>El Sol es la estrella única y central del sistema solar; de tipo espectral G2 que contiene más del 99,85 % de la masa del sistema.</desc>
+		<satelites>Satelites:0</satelites>
+		<posicion>CENTRO</posicion>
+		<nombre>Mercurio</nombre>
+		<desc>es el planeta del sistema solar más próximo al Sol y el más pequeño.
+		Forma parte de los denominados planetas interiores o terrestres 
+		y carece de satélites naturales al igual que Venus
+		</desc>
+		<satelites>Satelites:0</satelites>
+		<posicion>Posicion:01</posicion>
+		<nombre>Venus</nombre>
+		<desc>Es el segundo planeta del sistema solar en orden de distancia desde el Sol,
+		el sexto en cuanto a tamaño, ordenados de mayor a menor. Al igual que Mercurio, 
+		carece de satélites naturales</desc>
+		<satelites>Satelites:0</satelites>
+		<posicion>Posicion:02</posicion>
+		<nombre>Tierra</nombre>
+		<desc>Es el planeta del sistema solar que gira en la tercera órbita más interna. 
+		A su vez, es el más denso y el quinto mayor de los ocho planetas del sistema solar. 
+		</desc>
+		<satelites>Satelites:1</satelites>
+		<posicion>Posicion:03</posicion>
+		<nombre>Marte</nombre>
+		<desc>es el cuarto planeta en orden de distancia al Sol y el segundo más pequeño
+		del sistema solar, después de Mercurio. 
+		</desc>
+		<satelites>Satelites:2</satelites>
+		<posicion>04</posicion>
+		<nombre>Ceres</nombre>
+		<desc>es un planeta enano y el objeto astronómico más grande del cinturón de asteroides, región del sistema solar que se encuentra entre las órbitas de Marte y Júpiter</desc>
+		<satelites>Satelites:02</satelites>
+		<posicion>05</posicion>
+		<nombre>Jupiter</nombre>
+		<desc>Es el quinto planeta del sistema solar. Forma parte de los denominados
+		planetas exteriores o gaseosos
+		</desc>
+		<satelites>63</satelites>
+		<posicion>06</posicion>
+		<nombre>Saturno</nombre>
+		<desc>Es el sexto planeta del sistema solar, el segundo en tamaño y masa después
+		de Júpiter y el único con un sistema de anillos visible desde la Tierra.
+		</desc>
+		<satelites>Satelites:61</satelites>
+		<posicion>06</posicion>
+		<nombre>Urano</nombre>
+		<desc>Es el séptimo planeta del sistema solar, el tercero de mayor tamaño, y el cuarto más masivo
+		</desc>
+		<satelites>27</satelites>
+		<posicion>07</posicion>
+		<nombre>Neptuno</nombre>
+		<desc>Es el octavo planeta en distancia respecto al Sol y el más lejano del sistema solar. 
+		Forma parte de los denominados planetas exteriores o gigantes gaseosos
+		</desc>
+		<satelites>13</satelites>
+		<posicion>08</posicion>
+		<nombre>Pluton</nombre>
+		<desc>Es un planeta enano del sistema solar situado a continuación de la órbita de Neptuno.
+		</desc>
+		<satelites>02</satelites>
+		<posicion>09</posicion>
+		<nombre>Pluton</nombre>
+		<desc>Es un planeta enano que se encuentra más allá de la órbita de Neptuno, en el cinturón de Kuiper.
+		</desc>
+		<satelites>02</satelites>
+		<posicion>09</posicion>
+	</planetas>
+</sistema>
