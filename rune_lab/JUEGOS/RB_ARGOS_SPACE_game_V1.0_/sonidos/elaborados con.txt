@@ -1,0 +1,13 @@
+los sonidos y musica fuerop elaborados con:
+-------------------------------------------
+Sintetizador online de Musica en 8 bits.
+https://www.beepbox.co
+Editado con audacity:
+https://www.audacityteam.org/
+
+Tracks en mp3 y ogg:
+----------------------
+game
+disparo
+titulo
+explosion

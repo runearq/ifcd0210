@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<!-- A.R.G.O.S GAME-->
+<!-- Rune Brito N. -->
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <link href='css/rune_fonts.css?family=Orbitron:400,500,700,900' rel='stylesheet' type='text/css'>
+  <link href="css/normalizar.css" media="screen, print" rel="stylesheet" type="text/css" />
+  <link href="css/rune.css"  media="screen, print" rel="stylesheet" type="text/css" />
+  <title>a.r.g.o.s</title>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+
+  <div id="delta">
+
+    <div id="scoreboard">
+      <span class="lives"><span class="label">VIDAS:</span><img class="one" src="images/life.png"><img class="two" src="images/life.png"><img class="three" src="images/life.png"></span>
+      <span class="score"><span class="label">SCORE:</span><span class="value">00000</span></span>
+    </div>
+
+    <img id="booting" src='images/booting.gif'>
+
+    <h1 id="title"   style="display:none;">a.r.g.o.s</h1>
+    <h2 id="start"   style="display:none;">presione spacebar to para empezar</h1>
+    <h1 id="prepare" style="display:none;">ARGOS ver 1.0 // Rune Brit ™</h1>
+
+    <canvas id="canvas">
+      <div class="unsupported">
+        Sorry, No pede ser executado en su navegador debido a que no soporta el &lt;canvas&gt; 
+      </div>
+    </canvas>
+
+    <div id="instructions">
+      Mover con: ←↑↓ →, spacebar para disparar
+    </div>
+
+    <div id='sound' class='on' title='toggle music and fx' style="display:none;"></div>
+
+  </div>
+
+  <script src="js/rune_frames.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/rune.js"></script>
+  <script>
+    Delta();
+  </script>
+
+</body>
+</html>

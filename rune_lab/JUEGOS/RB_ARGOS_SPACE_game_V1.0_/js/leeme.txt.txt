@@ -1,0 +1,3 @@
+El archivo rune_frames es un compendio de librerias de javascrips
+tales como: "sizzle.js" y a su vez "FPSmeter.js"
+
