@@ -1,0 +1,71 @@
+    
+
+/* Hay que poner dos puntos antes de la direccion de la carpeta donde se ubica las imagenes; ya que no estan en el la carpeta 
+raiz con el .(x)html  y a su vez este archivo (ccs) esta en una carpeta paralela. De esta forma puede ubicar las imagenes */
+
+
+/* FOTOS/
+/* CCS/
+RB_sistema_solar_ccs_externo_html.html
+
+*/
+
+    body 
+    {
+
+    text-transform: uppercase;
+    font-family: Verdana;
+    background-image: url("../fotos/fondo_RUNE.jpg");
+    }
+
+ /*----------------------------------------------------*/   
+    img.ancho {
+    max-width: 100%;
+    height: auto;
+    }
+
+    table.customTable {
+    width: 100%;
+    background-color: #000000;
+    border-collapse: collapse;
+    border-width: 0px;
+    border-color: #7EA8F8;
+    border-style: solid;
+    color: #BCBCBC;
+    }
+    
+    table.customTable td, table.customTable th {
+    border-width: 0px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 5px;
+    }
+    
+/* background-color: #1C5DAE; */ 
+
+    table.customTable thead {
+    
+    background-image: url("../fotos/fondo10.jpg");
+    opacity: 1.0;
+
+    }
+    
+   /* #7EA8F8; */ 
+
+    img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    }
+
+    .subtitulo {
+
+    color: #000000; text-align: center;
+
+    }
+
+    .titulo {
+    text-align: center;
+    border: 0px solid blue;
+    border-color: #7EA8F8;  
+    }

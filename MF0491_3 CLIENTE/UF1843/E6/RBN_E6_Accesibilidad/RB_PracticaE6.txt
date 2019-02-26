@@ -1,0 +1,14 @@
+Actividad:
+-------------
+
+Insertar técnicas de usabilidad y accesibilidad a las practicas E2 y E4 /
+
+Para este caso se elaboró un menu a un extremo de la pagina que contierne los diversos elementos de accesibilidad y usabilidad, tales como:
+
+- Letras Mayusculas (MAY)
+- Letras grandes (+A)
+- Letras Minusculas (-a-)
+- Pagina en Fondo negro con letras en amarillo (A/N)
+- Lector de texto en la pagina (con previa seleccion)
+
+- Ir arriba ( miga de pan TOP)
