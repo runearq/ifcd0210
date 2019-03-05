@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--E2: EXAMEN-2 / ELABORAR UN DOCUMENTO HTML5 UTILIZANDO LENGUAJES DE MARCAS Y ESTANDARES DE DESARROLLO DE SOFTWARE.
+------------------------  
+MODULO: MF0491-3 DE UF1841
+ALUMNO: RUNE BRITO NUÑEZ  
+FECHA:05/01/2019
+/////////////////////////////////////////////////////////////////
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<meta charset="utf-8">
+
+  <meta name="keywords" content="arquitectura, diseño, web, urbano, animaciones, 3d,2d, rune, arquigram "/>
+  <meta name="description" content="pagina de arquitectura y diseño "/>
+
+<!--reloj-->
+<style>
+.clockdate-wrapper {
+    background-color: #333;
+    padding:25px;
+    max-width:500px;
+    width:100%;
+    text-align:center;
+    border-radius:5px;
+    margin:0 auto;
+    margin-top:15%;
+}
+#clock{
+    background-color:#333;
+    font-family: sans-serif;
+    font-size:20px;
+    text-shadow:0px 0px 1px #fff;
+    color:#fff;
+}
+#clock span {
+    color:#888;
+    text-shadow:0px 0px 1px #333;
+    font-size:30px;
+    position:relative;
+    top:-27px;
+    left:-10px;
+}
+#date {
+    letter-spacing:10px;
+    font-size:14px;
+    font-family:verdana,sans-serif;
+    color:#fff;
+}
+
+</style>
+
+
+<!--+++ link externo de estilos y js, en carpeta css, -->
+
+<script type="text/javascript" src="./js/jquery.js">
+</script>
+<script type="text/javascript" src="./js/jquery-ui.min.js">
+</script>
+<script type="text/javascript" src="./js/bootstrap.min.js">
+</script>
+<script type="text/javascript" src="./js/Customjs.js">
+</script>
+<script type="text/javascript" src="./js/contactform.js">
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Rune / arquigram / contacto
+</title>
+<link rel="stylesheet"  href="./css/bootstrap.css" type="text/css" media="screen"/>
+<link rel="stylesheet"  href="./css/style.css" type="text/css" media="screen"/>
+
+<script type="text/javascript" src="totop.js">
+</script>
+
+</head>
+<body class="Contacto">
+
+<body onload="startTime()">
+<script>
+
+// reloj
+
+function startTime() {
+    var today = new Date();
+    var hr = today.getHours();
+    var min = today.getMinutes();
+    var sec = today.getSeconds();
+    
+    min = checkTime(min);
+    sec = checkTime(sec);
+    document.getElementById("clock").innerHTML = hr + " : " + min + " : " + sec;
+    var time = setTimeout(function(){ startTime() }, 500);
+}
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+</script>
+
+
+
+<!-- reloj -->
+
+
+
+<div class="totopshow">
+<a href="#" class="back-to-top"><img alt="Back to Top" src="images/gototop0.png"/></a>
+</div>
+<div id="ttr_page" class="container">
+<header id="ttr_header">
+<div id="ttr_header_inner">
+<div class="ttr_headershape01">
+<div class="html_content"><p style="margin:0em 0em 0em 0em;line-height: normal;"><br style="font-size:0.571em;" /></p><p style="margin:0em 0em 0em 0em;text-align:Center;line-height: normal;"><span style="font-family:'Roboto','Arial';font-weight:300;color:rgba(153,153,153,1);">A</span><span style="font-family:'Roboto','Arial';font-weight:300;color:rgba(153,153,153,1);">rq.</span><span style="font-family:'Roboto','Arial';font-weight:300;color:rgba(153,153,153,1);"> Rune Brito</span><span style="font-family:'Roboto','Arial';font-weight:300;color:rgba(153,153,153,1);"></span></p></div>
+</div>
+<div class="ttr_headershape02">
+<div class="html_content"><p style="margin:0em 0em 0em 0em;text-align:Center;line-height: normal;"><br style="font-size:0.571em;" /></p><p style="margin:0em 0em 0em 0em;text-align:Center;line-height: normal;"><span style="font-family:'Roboto','Arial';font-weight:300;color:rgba(153,153,153,1);">Telefono: </span><span style="font-family:'Roboto','Arial';font-weight:300;color:rgba(153,153,153,1);">+34 000000</span></p></div>
+</div>
+</div>
+</header>
+<nav id="ttr_menu" class="navbar-default navbar">
+   <div id="ttr_menu_inner_in">
+<div class="menuforeground">
+</div>
+<div id="navigationmenu">
+<div class="navbar-header">
+<button id="nav-expander" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+<span class="sr-only">
+</span>
+<span class="icon-bar">
+</span>
+<span class="icon-bar">
+</span>
+<span class="icon-bar">
+</span>
+</button>
+<a href="#" target="_self">
+<img  class="ttr_menu_logo" src="./images/menulogo.png" >
+</a>
+</div>
+<div class="menu-center collapse navbar-collapse">
+<ul class="ttr_menu_items nav navbar-nav navbar-right">
+<li class="ttr_menu_items_parent dropdown"><a href="inicio.html" class="ttr_menu_items_parent_link">
+Inicio
+</a>
+<hr class ="horiz_separator"/>
+</li>
+<li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link">
+Comunidad
+</a>
+<hr class ="horiz_separator"/>
+</li>
+<li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link">
+Servicios
+</a>
+<hr class ="horiz_separator"/>
+</li>
+<li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link">
+Proyectos
+</a>
+<hr class ="horiz_separator"/>
+</li>
+<li class="ttr_menu_items_parent dropdown active"><a href="#" class="ttr_menu_items_parent_link_active">
+Contacto</a>
+<hr class ="horiz_separator"/>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+<div id="ttr_content_and_sidebar_container">
+<div id="ttr_content">
+<div id="ttr_content_margin"class="container-fluid">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="ttr_Contacto_html_row0 row">
+<div class="post_column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="ttr_Contacto_html_column00">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="html_content"><p style="text-align:Center;"><span style="font-family:'Roboto Slab','Arial';font-weight:700;font-size:2.571em;color:rgba(1,156,204,1);">CONTACTO</span></p></div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div style="clear:both;"></div>
+</div>
+</div>
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+</div>
+<div class="post_column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="ttr_Contacto_html_column01">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="html_content"><p><span style="font-family:'Roboto Slab','Arial';font-weight:700;font-size:1.714em;color:rgba(34,34,34,1);">Rellene el formulario</span></p><p style="margin:1.43em 0em 0.36em 0em;"><form id="ContactForm4" class="form-horizontal" role="form" method="post" action="" style="padding:0px 0px 0px 0px;float:left;"><div class="form-group"><label class="col-sm-4 control-label">Nombre </label><div class="col-sm-8"><input type="text" class="form-control" data-vali="novalidation" /></div></div><div class="form-group"><label class="col-sm-4 control-label">e-mail</label><div class="col-sm-8"><input type="text" class="form-control" data-vali="email" /></div></div><div class="form-group"><label class="col-sm-4 control-label">Asunto</label><div class="col-sm-8"><input type="text" class="form-control" data-vali="novalidation" /></div></div><div class="form-group"><label class="col-sm-4 control-label">Mensaje</label><div class="col-sm-8"><textarea class="form-control comment" name="message" rows="4"></textarea></div></div><div class="form-group"><div class="col-sm-4 col-sm-offset-8"><input type="submit" class="pull-right btn btn-sm btn-primary" rows="4" id="submit" name="submit" value="Enviar" /></div></div><div class="clearfix"></div><div class="success"></div><div class="req_field"></div><div class="clearfix"></div></form></p></div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div style="clear:both;"></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="ttr_Contacto_html_column02">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="html_content"><p><span style="font-family:'Roboto Slab','Arial';font-weight:700;font-size:1.714em;color:rgba(34,34,34,1);">Informacion de contacto</span></p><p style="margin:1.43em 0em 0.36em 0em;line-height:1.54929577464789;"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(34,34,34,1);">Si necesita más información, no dude en ponerse en contacto con nosotros</span><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(34,34,34,1);"> rellenando el formulario o directamente a nuestro telefono o email</span><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(34,34,34,1);">, estaremos encantados de ayudarle en todo lo que podamos</span><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(34,34,34,1);">.</span></p><p style="margin:1.43em 0em 0em 0em;line-height:1.54929577464789;"><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">Sta cruz de Tenerife</span></p><p style="margin:0em 0em 0em 0em;line-height:1.54929577464789;"><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">Islas Canarias</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">,</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);"> España</span></p><p style="margin:1.43em 0em 0.36em 0em;line-height:1.54929577464789;"><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">Telefono</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);"> No :</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);"> </span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">+</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">34</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);"> </span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">000000</span></p><p style="margin:0em 0em 0.36em 0em;line-height:1.54929577464789;"><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">Fax no :</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);"> </span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">+</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">34 000010</span></p><p style="margin:0em 0em 0.36em 0em;line-height:1.54929577464789;"><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">Email :- Email@</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">runearq</span><span style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);">.com</span></p><p style="margin:0em 0em 0.36em 0em;line-height:1.54929577464789;"><br style="font-family:'Roboto','Arial';font-weight:500;font-size:1.143em;color:rgba(34,34,34,1);" /></p></div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;">
+	
+</div>
+
+
+
+<div style="clear:both;"></div>
+
+<div id="clockdate">
+  <div class="clockdate-wrapper">
+    <div id="clock"></div>
+    <div id="date"></div>
+  </div>
+
+
+
+</div>
+
+
+</div>
+
+</div>
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+</div>
+</div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+</div>
+</div>
+<div style="clear:both">
+</div>
+</div>
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+<footer id="ttr_footer">
+<div class="ttr_footerContacto_html_row0 row">
+<div class="post_column col-lg-3 col-md-6 col-sm-6 col-xs-12">
+<div class="ttr_footerContacto_html_column00">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="html_content"><p style="margin:0.36em 0em 0.36em 2.86em;">&nbsp;</p><p style="margin:0.36em 0em 0.36em 2.86em;"><span style="font-family:'Roboto Slab','Arial';font-weight:700;font-size:1.429em;color:rgba(0,182,240,1);">NAVIGATION</span></p><p style="margin:1.43em 0em 0.36em 2.86em;"><a HREF="Home.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Inicio</span></a></p><p style="margin:0.57em 0em 0.36em 2.86em;"><a HREF="Firm-Profile.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Portafolio</span><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">&nbsp;&nbsp;</span></a></p><p style="margin:0.57em 0em 0.36em 2.86em;"><a HREF="Services.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Servic</span><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">ios</span></a></p><p style="margin:0.57em 0em 0.36em 2.86em;"><a HREF="Events.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Events</span></a></p><p style="margin:0.57em 0em 0.36em 2.86em;"><a HREF="Contact.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Contact</span></a></p></div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-6 col-sm-6 col-xs-12">
+<div class="ttr_footerContacto_html_column01">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="html_content"><p style="margin:0.36em 0em 0.36em 2.86em;">&nbsp;</p><p style="margin:0.36em 0em 0.36em 2.86em;"><span style="font-family:'Roboto Slab','Arial';font-weight:700;font-size:1.429em;color:rgba(0,182,240,1);">SERVICIOS</span></p><p style="margin:1.43em 0em 0em 2.86em;"><a HREF="Services.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Diseño Web</span></a></p><p style="margin:0.57em 0em 0em 2.86em;font-size:1.333em;"><a HREF="Services.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">  </span></a> </p><p style="margin:0.57em 0em 0em 2.86em;font-size:1.333em;"><a HREF="Services.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">  </span><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);"> </span></a>&nbsp;&nbsp;</p><p style="margin:0.57em 0em 0em 2.86em;font-size:1.333em;"><a HREF="Services.html" class="tt_link" target="_self"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">  </span></a>&nbsp;&nbsp;</p><p style="margin:0.57em 0em 0em 2.86em;">&nbsp;&nbsp;</p></div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+</div>
+</div>
+<div class="clearfix visible-sm-block visible-md-block visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-6 col-sm-6 col-xs-12">
+<div class="ttr_footerContacto_html_column02">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="html_content"><p style="margin:0.36em 0em 0.36em 2.86em;">&nbsp;</p><p style="margin:0.36em 0em 0.36em 2.86em;"><span style="font-family:'Roboto Slab','Arial';font-weight:700;font-size:1.429em;color:rgba(0,182,240,1);">ARCHIVOS</span></p><p style="margin:1.43em 0em 0.36em 2.86em;"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Feb 2019</span></p><p style="margin:0.57em 0em 0.36em 2.86em;"><br style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);" /></p><p style="margin:0.57em 0em 0.36em 2.86em;"><br style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);" /></p><p style="margin:0.57em 0em 0.36em 2.86em;"><br style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);" /></p><p style="margin:0.57em 0em 0.36em 2.86em;"><br style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);" /></p></div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-6 col-sm-6 col-xs-12">
+<div class="ttr_footerContacto_html_column03">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="html_content"><p style="margin:0.36em 0em 0.36em 2.86em;">&nbsp;</p><p style="margin:0.36em 0em 0.36em 2.86em;"><span style="font-family:'Roboto Slab','Arial';font-weight:700;font-size:1.429em;color:rgba(0,182,240,1);">MISC</span></p><p style="margin:1.43em 0em 0.36em 2.86em;"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Google</span></p><p style="margin:0.57em 0em 0.36em 2.86em;"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Arquitectura</span></p><p style="margin:0.57em 0em 0.36em 2.86em;"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Arquitectos</span></p><p style="margin:0.57em 0em 0.36em 2.86em;"><span style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);">Arquitecturaenlinea</span></p><p style="margin:0.57em 0em 0.36em 2.86em;"><br style="font-family:'Roboto','Arial';font-weight:300;font-size:1.143em;color:rgba(255,255,255,1);" /></p></div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+</div>
+</div>
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+</div>
+</div>
+<div class="ttr_footer_bottom_footer">
+<div class="ttr_footer_bottom_footer_inner">
+<div class="ttr_footershape1">
+<div class="html_content"><p>&nbsp;</p></div>
+</div>
+<div class="ttr_footershape2">
+<div class="html_content"><p>&nbsp;</p></div>
+</div>
+<div id="ttr_copyright">
+<a href="#">
+Rune Brito © 2015 All rights reserved 
+</a>
+</div>
+<a href="http://www.facebook.com/runebrito/" class="ttr_footer_facebook" target="_self" >
+</a>
+<a href="http://twitter.com/runearq"class="ttr_footer_twitter" target="_self" >
+</a>
+<a href="mailto:runearq@gmail.com"class="ttr_footer_googleplus" target="_self" >
+</a>
+</div>
+</div>
+</footer>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-bottom-collapse: separate;"></div>
+</div>
+<script type="text/javascript">
+WebFontConfig = {
+google: { families: [ 'Roboto+Slab:700','Roboto+Slab'] }
+};
+(function() {
+var wf = document.createElement('script');
+wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1.0.31/webfont.js';
+wf.type = 'text/javascript';
+wf.async = 'true';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(wf, s);
+})();
+</script>
+</body>
+</html>
