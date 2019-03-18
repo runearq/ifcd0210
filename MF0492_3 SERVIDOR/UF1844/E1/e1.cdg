@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="rune2">
+  <ClassDiagramComponents>
+    <Class name="Persona" package="" visibility="public" xPosition="504.0" yPosition="29.0">
+      <Fields>
+        <Field name="nombre" type="string" visibility="private"/>
+        <Field name="apellinos" type="string" visibility="private"/>
+        <Field name="dni" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="empleado" package="" visibility="public" xPosition="149.0" yPosition="218.0">
+      <Fields>
+        <Field name="fechInicio" type="date" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="trabajador" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="universidad" package="" visibility="public" xPosition="498.0" yPosition="233.0">
+      <Fields>
+        <Field name="nombre" type="string" visibility="private"/>
+        <Field name="ciudad" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearprofesionales" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="estudiante" package="" visibility="public" xPosition="797.0" yPosition="169.0">
+      <Fields>
+        <Field name="nombre" type="string" visibility="private"/>
+        <Field name="apellidos" type="stiring" visibility="private"/>
+        <Field name="dni" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Adm" package="" visibility="public" xPosition="30.0" yPosition="405.0">
+      <Fields>
+        <Field name="puesto" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="administrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Docencia" package="" visibility="public" xPosition="257.0" yPosition="543.0">
+      <Fields>
+        <Field name="categoria" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="investigar" returnType="void" visibility="public"/>
+        <Method name="difundir" returnType="void" visibility="public"/>
+        <Method name="encenar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="departamento" package="" visibility="public" xPosition="504.0" yPosition="424.0">
+      <Fields>
+        <Field name="nombre" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Grado" package="" visibility="public" xPosition="797.0" yPosition="422.0">
+      <Fields>
+        <Field name="titulacion" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="colaborar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="postgrado" package="" visibility="public" xPosition="1163.0" yPosition="424.0">
+      <Fields>
+        <Field name="programa" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="realizarTesis" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="doctorYmaster" package="" visibility="public" xPosition="797.0" yPosition="651.0">
+      <Fields>
+        <Field name="doctorId" type="string" visibility="private"/>
+        <Field name="masterid" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="enzenanzaPost" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="e1" source="universidad" target="Persona" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="personas" source="universidad" target="empleado" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Docente PHD" source="Docencia" target="doctorYmaster" type="Composition" sourceCardinality="0..1" targetCardinality="0..1"/>
+    <IsRelation name="is" source="estudiante" target="Persona"/>
+    <IsRelation name="is" source="doctorYmaster" target="empleado"/>
+    <IsRelation name="is" source="empleado" target="Persona"/>
+    <IsRelation name="is" source="Grado" target="estudiante"/>
+    <HasRelation name="personal" source="Docencia" target="empleado" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="personas" source="universidad" target="estudiante" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="personal" source="Adm" target="empleado" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="docentes" source="Docencia" target="departamento" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="hacia" source="Grado" target="postgrado" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <UseRelation name="graduados" source="postgrado" target="doctorYmaster" sourceCardinality="1..*" targetCardinality="1..*"/>
+    <IsRelation name="is" source="postgrado" target="estudiante"/>
+    <HasRelation name="persona" source="departamento" target="empleado" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="persona" source="universidad" target="departamento" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="hacia" source="departamento" target="Grado" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <UseRelation name="" source="doctorYmaster" target="Grado" sourceCardinality="1..*" targetCardinality="1..*"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
