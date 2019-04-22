@@ -1,0 +1,1 @@
+Crear la base de datos con el nombre de "bombero" y exportar el archivo "bombrero.sql" dentro de ésta.
