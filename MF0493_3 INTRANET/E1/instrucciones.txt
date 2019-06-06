@@ -1,0 +1,72 @@
+istalar el worpress luego descomprimir la carpeta plugins e instalar todos los plugines dentro de la plantilla (subirlos como .zip y activarlos , posterirmente activar el tema de la plantilla en temas o themes.
+
+
+Despues de estar instalado y configurado con todos los plugines activados, ir a la base de datos que pertenece al portal (en options, tanto en "siteurl" como en "home") editar los campos y poner el ip que aparece en el cmd a traves del comando ipconfig para ver el ip y sustituirlo por localhost.
+
+ejemplo si se llama xonar la carpeta:
+
+editar el campo "siteurl" y "url" por 
+sustituir http://localhost/xonar/
+por el IP: 
+http://192.168.1.160/xonar
+
+
+Posteriormente En Windows modificamos un archivo del servidor apache.
+Abrimos nuestro panel de XAMPP y hacemos clic en la sección de Apache, Config y Apache (httpd-xampp.conf):
+
+Buscamos un codigo similar a este al final del documento:
+
+#
+# New XAMPP security concept
+#
+<LocationMatch “^/(?i:(?:xampp|security|licenses|phpmyadmin|webalizer|server-status|server-info))”>
+Require local
+ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var
+</LocationMatch>
+
+Y lo sustituimos por este: (si no aparece el codigo antes mencionado, pegamos igualmente este codigo al final - despues del </IfModule> )
+
+
+#
+# New XAMPP security concept
+#
+# Close XAMPP security section here
+<LocationMatch “^/(?i:(?:security))”>
+Order deny,allow
+#Deny from all
+#Allow from ::1 127.0.0.0/8
+Allow from all
+ErrorDocument 403 /error/HTTP_XAMPP_FORBIDDEN.html.var
+</LocationMatch>
+# Close XAMPP sites here
+<LocationMatch “^/(?i:(?:xampp|licenses|phpmyadmin|webalizer|server-status|server-info))”>
+Order deny,allow
+#Deny from all
+#Allow from ::1 127.0.0.0/8
+Allow from all
+ErrorDocument 403 /error/HTTP_XAMPP_FORBIDDEN.html.var
+</LocationMatch>
+
+
+Por ultimo, una vez guardado el archivo, debemos detener y volver a iniciar el proceso Apache.
+
+La dirección para acceder desde un dispositivo de red debemos saber la IP del pc en la que tenemos
+instalado el XAMPP; esto lo hacemos escribiendo ipconfig desde el CMD de windows.
+
+En mi caso mi IP es 192.168.1.37 (verificar nuevamente en la base de datos en option ("siteurl" y "url") 
+
+Si guardamos la página en la carpeta D:\xampp\htdocs\xonar , en algún navegador conectado a la red
+tendrás que escribir http://192.168.1.37/pagina/
+
+Articulo original
+http://web.tecnodus.com/desarrollo-web/apache/abrir-acceso-por-red-a-xampp
+
+ver youtube:
+https://www.youtube.com/watch?v=mIG39JrtpqM
+
+
+
+
+
+
+ 
